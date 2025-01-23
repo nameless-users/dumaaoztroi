@@ -1601,7 +1601,8 @@ library.createWindow =
 				utils.keyTabAnimate(nil, TabCanvasGroup)
 
 				spawn(function()
-					repeat wait() until TabFunctions.additionalTab
+					local wait_time = 10
+					repeat wait(0.5) wait_time = wait_time + 1 until TabFunctions.additionalTab or wait_time == 20
 					TabFunctions.additionalTab.Visible = true
 					utils.tween(TabFunctions.additionalTab, {0.35, TweenStyle, TweenDirection}, {
 						GroupTransparency = 0,
@@ -1629,7 +1630,8 @@ library.createWindow =
 
 				--if TabFunctions.additionalTab then
 					spawn(function()
-						repeat wait() until TabFunctions.additionalTab
+						local wait_time = 10
+						repeat wait(0.5) wait_time = wait_time + 1 until TabFunctions.additionalTab or wait_time == 20
 						local b = utils.tween(TabFunctions.additionalTab, {0.35, TweenStyle, TweenDirection}, {
 							GroupTransparency = 1,
 							Position = UDim2.new(1, 0, 0.479000002, 0)
